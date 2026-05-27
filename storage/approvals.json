@@ -1,0 +1,16 @@
+[
+  {
+    "id": "a-001",
+    "subject": "Drive export destination",
+    "status": "pending",
+    "severity": "medium",
+    "rule": "Required before publishing final docs to Google Drive."
+  },
+  {
+    "id": "a-002",
+    "subject": "Live deployment promotion",
+    "status": "pending",
+    "severity": "high",
+    "rule": "Required before pushing sandbox build to GitHub and Vercel production."
+  }
+]

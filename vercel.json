@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "framework": null,
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs24.x",
+      "maxDuration": 10
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/jobs/daily-sync",
+      "schedule": "0 12 * * *"
+    },
+    {
+      "path": "/api/jobs/queue-sweep",
+      "schedule": "*/30 * * * *"
+    }
+  ]
+}
+

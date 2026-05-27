@@ -1,0 +1,14 @@
+{
+  "name": "xps-auto-builder",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Sandbox-first AUTO BUILDER control plane with frontend, backend, docs, and validation assets.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "validate": "node scripts/validate.mjs"
+  }
+}
+

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XPS AUTO BUILDER</title>
+    <link rel="stylesheet" href="/app.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="rail">
+        <div class="brand">
+          <span class="eyebrow">AUTO BUILDER</span>
+          <h1>XPS Command</h1>
+          <p>Sandbox-first control plane for governed builds, approvals, and release readiness.</p>
+        </div>
+        <nav class="nav">
+          <a href="#overview">Overview</a>
+          <a href="#queue">Queue</a>
+          <a href="#integrations">Integrations</a>
+          <a href="#bridge">Bridge</a>
+          <a href="#validation">Validation</a>
+          <a href="/handbook">GitHub Pages Docs</a>
+        </nav>
+        <div class="meta">
+          <p>Verified targets</p>
+          <ul>
+            <li>GitHub repo</li>
+            <li>Vercel project</li>
+            <li>Supabase project</li>
+            <li>Google Drive account</li>
+          </ul>
+        </div>
+      </aside>
+      <main class="workspace">
+        <section class="hero" id="overview">
+          <div>
+            <span class="eyebrow">Current Stage</span>
+            <h2 id="stage">Loading…</h2>
+          </div>
+          <div class="hero-copy">
+            <p id="status">Fetching current system status.</p>
+          </div>
+        </section>
+
+        <section class="band metrics">
+          <div>
+            <span class="label">Queue items</span>
+            <strong id="metric-total">0</strong>
+          </div>
+          <div>
+            <span class="label">Blocked</span>
+            <strong id="metric-blocked">0</strong>
+          </div>
+          <div>
+            <span class="label">Pending approvals</span>
+            <strong id="metric-pending">0</strong>
+          </div>
+        </section>
+
+        <section class="band" id="queue">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Governed Work</span>
+              <h3>Queue manager</h3>
+            </div>
+            <form id="queue-form" class="inline-form">
+              <input type="text" name="title" placeholder="Add a build task" aria-label="Queue task title" required>
+              <button type="submit">Add task</button>
+            </form>
+          </div>
+          <div id="queue-list" class="list"></div>
+        </section>
+
+        <section class="split">
+          <section class="band" id="bridge">
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">Autonomous GPT Bridge</span>
+                <h3>Blocker workarounds</h3>
+              </div>
+            </div>
+            <div id="bridge-list" class="list compact"></div>
+          </section>
+
+          <section class="band" id="integrations">
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">Connected Stack</span>
+                <h3>Integration posture</h3>
+              </div>
+            </div>
+            <div id="integration-list" class="list compact"></div>
+          </section>
+
+          <section class="band" id="validation">
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">Validation</span>
+                <h3>Evidence snapshot</h3>
+              </div>
+              <button id="refresh-validation" type="button">Refresh</button>
+            </div>
+            <div id="validation-list" class="list compact"></div>
+          </section>
+        </section>
+
+        <section class="band approvals">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Approval Center</span>
+              <h3>Human-required gates</h3>
+            </div>
+          </div>
+          <div id="approval-list" class="list compact"></div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

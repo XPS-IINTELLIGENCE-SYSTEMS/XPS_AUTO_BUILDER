@@ -1,0 +1,35 @@
+[
+  {
+    "id": "q-intake",
+    "title": "Normalize builder docs into live repo source truth",
+    "owner": "AUTO BUILDER",
+    "lane": "ready",
+    "priority": "critical",
+    "platform": "GitHub",
+    "approvalState": "approved",
+    "evidence": "Attached builder docs and memory files were inspected before implementation.",
+    "nextAction": "Keep builder docs synchronized with code and validation outputs."
+  },
+  {
+    "id": "q-drive",
+    "title": "Package operator docs for Drive handoff",
+    "owner": "Operations",
+    "lane": "awaiting-approval",
+    "priority": "high",
+    "platform": "Google Drive",
+    "approvalState": "pending",
+    "evidence": "Drive account is connected, but destination folder is not yet grounded.",
+    "nextAction": "Confirm target folder or Docs destination before export."
+  },
+  {
+    "id": "q-release",
+    "title": "Promote sandbox repo into GitHub and Vercel targets",
+    "owner": "Release",
+    "lane": "blocked",
+    "priority": "critical",
+    "platform": "Vercel",
+    "approvalState": "pending",
+    "evidence": "Local build is ready; live sync is blocked by sandbox network constraints.",
+    "nextAction": "Run remote push and deploy from an environment with GitHub/Vercel write access."
+  }
+]

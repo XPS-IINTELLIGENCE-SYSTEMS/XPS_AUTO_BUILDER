@@ -1,0 +1,21 @@
+name: vercel-preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "vercel.json"
+      - "supabase/**"
+      - "docs/builder/**"
+      - "docs/validation/**"
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: test -f vercel.json
+      - run: test -f supabase/migrations/202605270001_init_auto_builder.sql
+      - run: test -f docs/validation/validation-report.md
+

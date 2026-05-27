@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #f6f3ec, #ffffff);
+  color: #1c1d1f;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0f766e;
+  font-size: 12px;
+}
+
+h1,
+h2 {
+  font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+}
+
+section {
+  border-top: 1px solid rgba(28, 29, 31, 0.12);
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+ul {
+  line-height: 1.7;
+}
+

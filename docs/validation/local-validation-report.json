@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-05-27T03:27:50.493Z",
+  "summary": {
+    "currentStatus": "Locally validated sandbox build",
+    "verified": [
+      {
+        "label": "GitHub",
+        "status": "connected",
+        "detail": "Authenticated user xps-admin; target repository XPS-IINTELLIGENCE-SYSTEMS/XPS_AUTO_BUILDER exists."
+      },
+      {
+        "label": "Vercel",
+        "status": "connected",
+        "detail": "Project auto-builder exists with production domain auto-builder-livid.vercel.app."
+      },
+      {
+        "label": "Supabase",
+        "status": "connected",
+        "detail": "Project Strategic Minds Advisory is ACTIVE_HEALTHY in us-east-2."
+      },
+      {
+        "label": "Google Drive",
+        "status": "connected",
+        "detail": "Account Jeremy / strategicmindsadvisory@gmail.com is connected."
+      }
+    ],
+    "inferred": [
+      "The validated local repo should map to the existing GitHub and Vercel targets once network write access is available.",
+      "Google Drive should receive exported docs and operator packets after the destination folder is confirmed."
+    ],
+    "couldNotVerify": [
+      "Direct GitHub clone, push, or pull from this sandbox.",
+      "Live Vercel deploy from this run.",
+      "Live Supabase migration execution from this run.",
+      "Direct Google Drive writeback destination for final artifacts.",
+      "Direct Xyla execution in the current runtime."
+    ],
+    "evidence": [
+      "Frontend route and static assets served locally.",
+      "API health, overview, queue mutation, and approval mutation covered by node:test.",
+      "Supabase migration, Vercel config, GitHub workflows, and GitHub Pages docs are present in repo."
+    ],
+    "blockers": [
+      "Remote sync and deployment were not executed from this sandbox.",
+      "Drive export destination is still unresolved."
+    ]
+  }
+}
