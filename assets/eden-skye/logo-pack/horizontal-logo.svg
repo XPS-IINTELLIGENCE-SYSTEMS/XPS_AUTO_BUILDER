@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="800" viewBox="0 0 2400 800" role="img" aria-labelledby="title desc">
+  <title id="title">Eden Skye Horizontal Logo</title>
+  <desc id="desc">Horizontal Eden Skye wordmark with ES monogram and virtual creator descriptor.</desc>
+  <rect width="2400" height="800" fill="#0D0D0D"/>
+  <circle cx="410" cy="400" r="190" fill="none" stroke="#C8C0B2" stroke-width="8"/>
+  <text x="410" y="444" text-anchor="middle" font-family="Didot, Bodoni 72, Playfair Display, Georgia, serif" font-size="170" letter-spacing="-8" fill="#C8C0B2">ES</text>
+  <text x="760" y="360" font-family="Didot, Bodoni 72, Playfair Display, Georgia, serif" font-size="190" letter-spacing="14" fill="#C8C0B2">EDEN SKYE</text>
+  <line x1="765" y1="430" x2="2070" y2="430" stroke="#8C8172" stroke-width="3"/>
+  <text x="765" y="515" font-family="Montserrat, Avenir Next, Helvetica, Arial, sans-serif" font-size="42" letter-spacing="24" fill="#C8C0B2">VIRTUAL CREATOR</text>
+</svg>
