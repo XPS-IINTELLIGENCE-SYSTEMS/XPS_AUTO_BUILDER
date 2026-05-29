@@ -16,6 +16,22 @@
     {
       "source": "/bridge/status",
       "destination": "/api/bridge/status"
+    },
+    {
+      "source": "/factory/readiness",
+      "destination": "/api/factory/readiness"
+    },
+    {
+      "source": "/factory/router",
+      "destination": "/api/factory/router"
+    },
+    {
+      "source": "/factory/build-packet",
+      "destination": "/api/factory/build-packet"
+    },
+    {
+      "source": "/factory/capability-test",
+      "destination": "/api/factory/capability-test"
     }
   ],
   "crons": [
