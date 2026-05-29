@@ -8,6 +8,16 @@
       "maxDuration": 10
     }
   },
+  "rewrites": [
+    {
+      "source": "/health",
+      "destination": "/api/health"
+    },
+    {
+      "source": "/bridge/status",
+      "destination": "/api/bridge/status"
+    }
+  ],
   "crons": [
     {
       "path": "/api/jobs/daily-sync",
@@ -16,7 +26,10 @@
     {
       "path": "/api/jobs/queue-sweep",
       "schedule": "*/30 * * * *"
+    },
+    {
+      "path": "/api/cron/factory-readiness",
+      "schedule": "*/5 * * * *"
     }
   ]
 }
-
