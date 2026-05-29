@@ -77,7 +77,7 @@ test("frontend renders html", async () => {
   await withServer(async (baseUrl) => {
     const response = await fetch(baseUrl);
     const html = await response.text();
-    assert.match(html, /XPS Command/);
-    assert.match(html, /Queue manager/);
+    assert.match(html, /Content Factory Control Room/);
+    assert.match(html, /Approval Gates/);
   });
 });

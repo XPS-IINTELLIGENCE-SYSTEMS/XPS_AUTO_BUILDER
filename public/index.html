@@ -1,121 +1,141 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>XPS AUTO BUILDER</title>
-    <link rel="stylesheet" href="/app.css">
-  </head>
-  <body>
-    <div class="shell">
-      <aside class="rail">
-        <div class="brand">
-          <span class="eyebrow">AUTO BUILDER</span>
-          <h1>XPS Command</h1>
-          <p>Sandbox-first control plane for governed builds, approvals, and release readiness.</p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eden Skye Content Factory</title>
+  <link rel="stylesheet" href="/app.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="rail" aria-label="Primary navigation">
+      <div class="brand-mark">ES</div>
+      <nav>
+        <button class="nav-item active" data-view="command">Command</button>
+        <button class="nav-item" data-view="factory">Factory</button>
+        <button class="nav-item" data-view="content">Content</button>
+        <button class="nav-item" data-view="finance">Finance</button>
+        <button class="nav-item" data-view="approvals">Approvals</button>
+      </nav>
+      <div class="rail-footer">
+        <span class="status-dot"></span>
+        <span>Preview only</span>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Eden Skye Operating System</p>
+          <h1>Content Factory Control Room</h1>
         </div>
-        <nav class="nav">
-          <a href="#overview">Overview</a>
-          <a href="#queue">Queue</a>
-          <a href="#integrations">Integrations</a>
-          <a href="#bridge">Bridge</a>
-          <a href="#validation">Validation</a>
-          <a href="/handbook">GitHub Pages Docs</a>
-        </nav>
-        <div class="meta">
-          <p>Verified targets</p>
-          <ul>
-            <li>GitHub repo</li>
-            <li>Vercel project</li>
-            <li>Supabase project</li>
-            <li>Google Drive account</li>
-          </ul>
+        <div class="top-actions">
+          <button class="ghost" id="toggleBoundary">Approval Boundary</button>
+          <button class="primary" id="openPacket">Generate Week 1 Draft Packet</button>
         </div>
-      </aside>
-      <main class="workspace">
-        <section class="hero" id="overview">
-          <div>
-            <span class="eyebrow">Current Stage</span>
-            <h2 id="stage">Loading…</h2>
-          </div>
-          <div class="hero-copy">
-            <p id="status">Fetching current system status.</p>
-          </div>
-        </section>
+      </header>
 
-        <section class="band metrics">
-          <div>
-            <span class="label">Queue items</span>
-            <strong id="metric-total">0</strong>
-          </div>
-          <div>
-            <span class="label">Blocked</span>
-            <strong id="metric-blocked">0</strong>
-          </div>
-          <div>
-            <span class="label">Pending approvals</span>
-            <strong id="metric-pending">0</strong>
-          </div>
-        </section>
+      <section class="boundary" id="boundaryPanel">
+        <strong>Approved lane:</strong> strategy, draft content, non-production queue processing, validation receipts, and preview frontend work. <strong>Held:</strong> production deploys, Vercel env changes, Supabase schema changes, Shopify writes, Stripe actions, and external publishing.
+      </section>
 
-        <section class="band" id="queue">
-          <div class="section-head">
-            <div>
-              <span class="eyebrow">Governed Work</span>
-              <h3>Queue manager</h3>
+      <section class="view active" id="view-command">
+        <div class="metric-row" aria-label="Factory metrics">
+          <article class="metric"><span>Queue Health</span><strong>18</strong><small>draft jobs ready</small></article>
+          <article class="metric"><span>Approval Risk</span><strong>Low</strong><small>protected writes held</small></article>
+          <article class="metric"><span>Week 1 Assets</span><strong>34</strong><small>planned outputs</small></article>
+          <article class="metric"><span>Revenue Target</span><strong>$8k</strong><small>base M12 floor</small></article>
+        </div>
+
+        <div class="command-grid">
+          <section class="panel wide">
+            <div class="section-heading">
+              <div><h2>Today's Operating Focus</h2><p>Convert approved automation into audience-visible draft work.</p></div>
+              <span class="badge safe">Draft mode</span>
             </div>
-            <form id="queue-form" class="inline-form">
-              <input type="text" name="title" placeholder="Add a build task" aria-label="Queue task title" required>
-              <button type="submit">Add task</button>
-            </form>
-          </div>
-          <div id="queue-list" class="list"></div>
-        </section>
-
-        <section class="split">
-          <section class="band" id="bridge">
-            <div class="section-head">
-              <div>
-                <span class="eyebrow">Autonomous GPT Bridge</span>
-                <h3>Blocker workarounds</h3>
-              </div>
+            <div class="timeline">
+              <div class="step done"><span></span><div><strong>Auto Builder planning package</strong><p>Business, strategy, finance, and content-factory operating docs complete.</p></div></div>
+              <div class="step active"><span></span><div><strong>Full frontend preview</strong><p>Build a complete command center using mock data and approval gates.</p></div></div>
+              <div class="step"><span></span><div><strong>Week 1 content packet</strong><p>Generate hooks, captions, visual briefs, and CTAs for review.</p></div></div>
+              <div class="step held"><span></span><div><strong>External publishing</strong><p>Held until human approval of each packet and channel.</p></div></div>
             </div>
-            <div id="bridge-list" class="list compact"></div>
           </section>
 
-          <section class="band" id="integrations">
-            <div class="section-head">
-              <div>
-                <span class="eyebrow">Connected Stack</span>
-                <h3>Integration posture</h3>
-              </div>
+          <section class="panel">
+            <div class="section-heading compact"><h2>Factory Mode</h2><span class="badge pulse">5 min</span></div>
+            <div class="mode-meter">
+              <div style="--level: 78%"></div>
             </div>
-            <div id="integration-list" class="list compact"></div>
+            <p class="quiet">Preview represents the recurring worker loop. It does not imply production cron changes are approved.</p>
+            <ul class="checklist">
+              <li><span></span>Queue intake</li>
+              <li><span></span>Draft generation</li>
+              <li><span></span>Receipt logging</li>
+              <li class="muted"><span></span>Live writes locked</li>
+            </ul>
           </section>
+        </div>
+      </section>
 
-          <section class="band" id="validation">
-            <div class="section-head">
-              <div>
-                <span class="eyebrow">Validation</span>
-                <h3>Evidence snapshot</h3>
-              </div>
-              <button id="refresh-validation" type="button">Refresh</button>
-            </div>
-            <div id="validation-list" class="list compact"></div>
+      <section class="view" id="view-factory">
+        <div class="section-heading"><div><h2>Auto Builder Queue</h2><p>Non-production jobs that move Eden from ideas to reviewable assets.</p></div><button class="ghost small" id="filterHeld">Show held jobs</button></div>
+        <div class="table-shell">
+          <table>
+            <thead><tr><th>Job</th><th>Lane</th><th>Status</th><th>Next Action</th><th>Risk</th></tr></thead>
+            <tbody id="jobTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="view" id="view-content">
+        <div class="content-layout">
+          <section>
+            <div class="section-heading"><div><h2>Week 1 Content Packet</h2><p>Designed to make the brand visible while keeping the offer path clean.</p></div><span class="badge safe">Draft packet</span></div>
+            <div class="content-list" id="contentList"></div>
           </section>
-        </section>
+          <aside class="inspector">
+            <h2>Selected Angle</h2>
+            <p id="angleCopy">Select a concept to inspect script, visual brief, and CTA.</p>
+            <div class="inspector-box"><span>CTA</span><strong id="angleCTA">Starter kit waitlist</strong></div>
+            <div class="inspector-box"><span>Visual Direction</span><strong id="angleVisual">Cinematic desk, soft monitor light, calm operator mood</strong></div>
+          </aside>
+        </div>
+      </section>
 
-        <section class="band approvals">
-          <div class="section-head">
-            <div>
-              <span class="eyebrow">Approval Center</span>
-              <h3>Human-required gates</h3>
-            </div>
+      <section class="view" id="view-finance">
+        <div class="section-heading"><div><h2>Financial Strategy</h2><p>Planning view for offer sequencing before spending or scaling automation.</p></div><span class="badge warn">Planning model</span></div>
+        <div class="finance-grid">
+          <div class="panel flat"><h3>Base Month 12</h3><strong>$24.2k</strong><p>Gross revenue target from starter kit, system pack, service sprints, and retainers.</p></div>
+          <div class="panel flat"><h3>Tool Cost Ratio</h3><strong>2.9%</strong><p>Healthy only if revenue signal appears before expanding paid automation scope.</p></div>
+          <div class="panel flat"><h3>Primary Control</h3><strong>Proof first</strong><p>No extra spend until content creates clicks, leads, and purchase intent.</p></div>
+        </div>
+        <div class="chart-panel">
+          <div class="bars" aria-label="Revenue scenario chart">
+            <span style="height:22%"></span><span style="height:38%"></span><span style="height:72%"></span><span style="height:92%"></span>
           </div>
-          <div id="approval-list" class="list compact"></div>
-        </section>
-      </main>
-    </div>
-    <script type="module" src="/app.js"></script>
-  </body>
+          <div class="chart-labels"><span>Conservative</span><span>Base</span><span>Strong</span><span>Aggressive</span></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-approvals">
+        <div class="section-heading"><div><h2>Approval Gates</h2><p>Everything that needs your sign-off before Eden or Auto Builder touches live surfaces.</p></div></div>
+        <div class="approval-grid" id="approvalGrid"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="packetDialog">
+    <form method="dialog">
+      <button class="close" aria-label="Close">x</button>
+      <h2>Week 1 Draft Packet</h2>
+      <p>This creates review-ready drafts only. No scheduling, public posting, commerce writes, or production changes.</p>
+      <div class="packet-preview">
+        <span>7 reel concepts</span><span>7 captions</span><span>7 CTAs</span><span>7 visual briefs</span><span>6 offer angles</span>
+      </div>
+      <menu><button class="primary">Keep as draft preview</button></menu>
+    </form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
 </html>
