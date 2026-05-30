@@ -1,0 +1,31 @@
+{
+  "system": "EDEN_SKYE",
+  "owner": "Jeremy",
+  "role": "executive-assistant-ai-avatar-media-brand",
+  "intelligence_repo": "Strategic-Minds/EDEN_SKYE",
+  "orchestration_repo": "XPS-IINTELLIGENCE-SYSTEMS/XPS_AUTO_BUILDER",
+  "source_truth": "Strategic-Minds/EDEN_SKYE",
+  "default_branch": "main",
+  "status": "bootstrap",
+  "autonomy_target": "maximum_safe_autonomy",
+  "connectivity_target": [
+    "GitHub",
+    "Vercel",
+    "Supabase",
+    "Shopify",
+    "Metricool",
+    "Google Workspace",
+    "approved_ai_image_tools",
+    "approved_ai_video_tools",
+    "approved_ai_voice_tools"
+  ],
+  "execution_model": {
+    "vercel_workflow": "planned",
+    "sandbox": "planned",
+    "crons": "planned",
+    "agents": "planned",
+    "approval_gates": "required"
+  },
+  "runtime_mutation_allowed": false,
+  "approval_required_for_runtime": true
+}
