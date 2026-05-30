@@ -1,0 +1,84 @@
+name: Eden Skye AutoBuild Heartbeat
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  eden-skye-heartbeat:
+    name: Eden Skye AutoBuild Read-Only Heartbeat
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Auto Builder
+        uses: actions/checkout@v4
+
+      - name: Verify Eden Skye registry package
+        shell: bash
+        run: |
+          set -e
+
+          echo "EDEN_SKYE AUTOBUILD HEARTBEAT"
+          echo "Run started: $(date -u)"
+          echo ""
+
+          REQUIRED_FILES=(
+            "systems/eden-skye/registry.json"
+            "systems/eden-skye/system-map.md"
+            "systems/eden-skye/integration-plan.md"
+          )
+
+          MISSING=0
+
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ -f "$file" ]; then
+              echo "PASS: $file"
+            else
+              echo "MISSING: $file"
+              MISSING=1
+            fi
+          done
+
+          echo ""
+          echo "Runtime mutation status: DISABLED"
+          echo "Deployment status: DISABLED"
+          echo "Supabase schema mutation: DISABLED"
+          echo "Shopify mutation: DISABLED"
+          echo "Secrets mutation: DISABLED"
+          echo ""
+          echo "This heartbeat only verifies Auto Builder Eden Skye source files."
+
+          if [ "$MISSING" -ne 0 ]; then
+            echo "One or more required files are missing."
+            exit 1
+          fi
+
+      - name: Write heartbeat report
+        shell: bash
+        run: |
+          mkdir -p reports/eden-skye
+          {
+            echo "# Eden Skye AutoBuild Heartbeat Report"
+            echo ""
+            echo "- Run UTC: $(date -u)"
+            echo "- Mode: read-only"
+            echo "- Runtime mutation: disabled"
+            echo "- Required files checked:"
+            echo "  - systems/eden-skye/registry.json"
+            echo "  - systems/eden-skye/system-map.md"
+            echo "  - systems/eden-skye/integration-plan.md"
+            echo ""
+            echo "## Next Safe Expansion"
+            echo "Add sandbox validation, queue inspection, and approval-gate checks after runtime structure is verified."
+          } > reports/eden-skye/heartbeat-report.md
+
+      - name: Upload heartbeat report
+        uses: actions/upload-artifact@v4
+        with:
+          name: eden-skye-heartbeat-report
+          path: reports/eden-skye/heartbeat-report.md
