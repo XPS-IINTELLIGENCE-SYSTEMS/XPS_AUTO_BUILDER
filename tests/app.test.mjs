@@ -81,3 +81,58 @@ test("frontend renders html", async () => {
     assert.match(html, /Approval Gates/);
   });
 });
+
+test("Eden provider status reports configuration without secrets", async () => {
+  await withServer(async (baseUrl) => {
+    const response = await fetch(`${baseUrl}/api/bridge/providers/runtime-status`);
+    assert.equal(response.status, 200);
+    const data = await response.json();
+    assert.equal(data.system, "EDEN_SKYE_AUTO_BUILDER_SYNC");
+    assert.ok(Array.isArray(data.providers));
+    assert.ok(data.providers.some((provider) => provider.provider === "supabase"));
+    assert.equal(JSON.stringify(data).includes("SERVICE_ROLE_KEY:"), false);
+  });
+});
+
+test("Eden social draft route keeps public publishing disabled", async () => {
+  await withServer(async (baseUrl) => {
+    const response = await fetch(`${baseUrl}/api/bridge/social-media/draft`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        text: "AI can fake almost anything, but it cannot fake a real transformation.",
+        network: "facebook",
+        platformTarget: "eden_skye_facebook"
+      })
+    });
+    assert.equal(response.status, 202);
+    const data = await response.json();
+    assert.equal(data.workflow, "eden_social_draft_queue");
+    assert.equal(data.draft.mode, "draft_only");
+    assert.equal(data.draft.publishState, "not_approved");
+    assert.equal(data.receipt.publicMutationAllowed, false);
+  });
+});
+
+test("Eden launch workflow returns approval-gated sequence", async () => {
+  await withServer(async (baseUrl) => {
+    const response = await fetch(`${baseUrl}/api/workflows/eden-launch`);
+    assert.equal(response.status, 200);
+    const data = await response.json();
+    assert.equal(data.workflow, "eden_30_day_launch_runtime");
+    assert.equal(data.mode, "governed_vercel_workflow");
+    assert.equal(data.publishAllowed, false);
+    assert.ok(data.automationSequence.includes("clone_winners"));
+  });
+});
+
+test("Eden workflow contract exposes runtime routes", async () => {
+  await withServer(async (baseUrl) => {
+    const response = await fetch(`${baseUrl}/api/workflows/eden-launch/contract`);
+    assert.equal(response.status, 200);
+    const data = await response.json();
+    assert.equal(data.runtime, "vercel_workflow");
+    assert.equal(data.routes.socialBridgeCron, "/api/cron/social-bridge");
+    assert.equal(data.queueContract.defaultMode, "draft_only");
+  });
+});
