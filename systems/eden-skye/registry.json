@@ -6,8 +6,13 @@
   "orchestration_repo": "XPS-IINTELLIGENCE-SYSTEMS/XPS_AUTO_BUILDER",
   "source_truth": "Strategic-Minds/EDEN_SKYE",
   "default_branch": "main",
-  "status": "bootstrap",
+  "status": "installed_manifest_ready_for_runtime_validation",
   "autonomy_target": "maximum_safe_autonomy",
+  "installed_manifests": {
+    "eden_repo_manifest": "Strategic-Minds/EDEN_SKYE/autonomy/eden-auto-builder-sync-manifest.json",
+    "auto_builder_sync_manifest": "systems/eden-skye/eden-auto-builder-sync.json",
+    "auto_builder_capabilities_map": "systems/eden-skye/autonomous-capabilities.md"
+  },
   "connectivity_target": [
     "GitHub",
     "Vercel",
@@ -15,17 +20,40 @@
     "Shopify",
     "Metricool",
     "Google Workspace",
+    "Xyla",
     "approved_ai_image_tools",
     "approved_ai_video_tools",
     "approved_ai_voice_tools"
   ],
   "execution_model": {
-    "vercel_workflow": "planned",
-    "sandbox": "planned",
-    "crons": "planned",
-    "agents": "planned",
+    "provider_status_route": "/api/bridge/providers/runtime-status",
+    "social_draft_route": "/api/bridge/social-media/draft",
+    "social_bridge_cron": "/api/cron/social-bridge",
+    "recursive_control_cron": "/api/cron/recursive-control",
+    "vercel_workflow": "runtime_validation_required",
+    "sandbox": "required_before_promotion",
+    "crons": "trigger_only_not_unchecked_workers",
+    "agents": "planned_lanes_intake_planning_production_distribution_analytics_governance",
     "approval_gates": "required"
   },
   "runtime_mutation_allowed": false,
-  "approval_required_for_runtime": true
+  "approval_required_for_runtime": true,
+  "approval_required_for": [
+    "public_social_post",
+    "paid_ad_launch",
+    "shopify_mutation",
+    "supabase_schema_or_production_data_change",
+    "vercel_production_deploy",
+    "external_email_or_sms",
+    "payment_or_discount_change",
+    "source_truth_canon_change"
+  ],
+  "next_validation_sequence": [
+    "check provider runtime status",
+    "verify Supabase telemetry tables",
+    "send one draft-only social bridge test payload",
+    "confirm receipt or blocker logging",
+    "load first 50 approved-for-draft content items",
+    "review first 72-hour posting schedule for approval"
+  ]
 }
