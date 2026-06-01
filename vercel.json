@@ -18,6 +18,22 @@
       "destination": "/api/bridge/status"
     },
     {
+      "source": "/bridge/providers/runtime-status",
+      "destination": "/api/bridge/providers/runtime-status"
+    },
+    {
+      "source": "/bridge/social-media/draft",
+      "destination": "/api/bridge/social-media/draft"
+    },
+    {
+      "source": "/workflows/eden-launch",
+      "destination": "/api/workflows/eden-launch"
+    },
+    {
+      "source": "/workflows/eden-launch/contract",
+      "destination": "/api/workflows/eden-launch/contract"
+    },
+    {
       "source": "/factory/readiness",
       "destination": "/api/factory/readiness"
     },
@@ -45,6 +61,10 @@
     },
     {
       "path": "/api/cron/factory-readiness",
+      "schedule": "*/5 * * * *"
+    },
+    {
+      "path": "/api/cron/social-bridge",
       "schedule": "*/5 * * * *"
     }
   ]
