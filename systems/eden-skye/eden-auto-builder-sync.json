@@ -1,0 +1,90 @@
+{
+  "system": "EDEN_SKYE_AUTO_BUILDER_SYNC",
+  "version": "2026-05-31",
+  "status": "installed_manifest_ready_for_runtime_validation",
+  "eden_intelligence_repo": "Strategic-Minds/EDEN_SKYE",
+  "auto_builder_orchestration_repo": "XPS-IINTELLIGENCE-SYSTEMS/XPS_AUTO_BUILDER",
+  "supabase_project_ref": "prhppuuwcnmfdhwsagug",
+  "metricool_default_brand_id": "6316987",
+  "runtime_routes": {
+    "provider_status": "/api/bridge/providers/runtime-status",
+    "social_draft_queue": "/api/bridge/social-media/draft",
+    "social_bridge_cron": "/api/cron/social-bridge",
+    "recursive_control_cron": "/api/cron/recursive-control",
+    "factory_readiness": "/api/factory/readiness",
+    "factory_router": "/api/factory/router",
+    "build_packet": "/api/factory/build-packet"
+  },
+  "required_env_vars_by_provider": {
+    "vercel_cron": ["CRON_SECRET"],
+    "supabase": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"],
+    "metricool": ["METRICOOL_API_URL", "METRICOOL_API_TOKEN"],
+    "facebook_meta_optional": ["META_ACCESS_TOKEN", "META_PAGE_ID"],
+    "instagram_optional": ["INSTAGRAM_BUSINESS_ACCOUNT_ID"],
+    "google_workspace_optional": ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"],
+    "xyla_optional": ["XYLA_API_URL", "XYLA_API_TOKEN"],
+    "opus_optional": ["OPUS_API_KEY"]
+  },
+  "required_supabase_tables": [
+    "runtime_telemetry_events",
+    "bridge_tasks",
+    "bridge_evidence",
+    "bridge_blockers",
+    "bridge_connector_actions",
+    "approval_queue",
+    "social_media_bridge",
+    "autobuilder_bridge_state"
+  ],
+  "queue_contract": {
+    "default_queue": "eden_skye_social_bridge",
+    "safe_default": "draft_only",
+    "approval_state": "approved_for_draft",
+    "publish_state": "not_approved",
+    "worker": "eden-skye-social-worker",
+    "unsafe_destination": "approval_queue"
+  },
+  "automation_lanes": {
+    "intake": ["drive_source_map", "github_source_map", "shopify_state", "metricool_state", "xyla_state", "supabase_telemetry"],
+    "planning": ["campaign_packet", "content_calendar", "draft_queue", "offer_map", "approval_list"],
+    "production": ["hook", "script", "caption", "cta", "visual_direction", "media_prompt", "repurpose_plan"],
+    "distribution": ["xyla_draft", "metricool_draft", "socialhub_planner_draft", "shopify_cta_path"],
+    "analytics": ["kill", "improve", "clone", "winner_pattern", "next_batch"],
+    "governance": ["approval_hold", "risk_note", "blocker", "source_claim_check", "receipt"]
+  },
+  "approval_required_for": [
+    "public_social_post",
+    "paid_ad_launch",
+    "shopify_mutation",
+    "supabase_schema_or_production_data_change",
+    "vercel_production_deploy",
+    "external_email_or_sms",
+    "payment_or_discount_change",
+    "source_truth_canon_change",
+    "testimonial_or_customer_face_use",
+    "product_spec_or_safety_claim",
+    "income_or_certification_claim"
+  ],
+  "start_today_validation_sequence": [
+    "confirm manifests installed in Eden and Auto Builder repos",
+    "check provider runtime status route",
+    "verify Supabase telemetry tables",
+    "send one draft-only social bridge test payload",
+    "run social bridge cron once or wait for next cron trigger",
+    "confirm receipt in bridge_connector_actions or blocker in bridge_blockers",
+    "create first 50 draft queue items from approved source content",
+    "review and approve first 72-hour posting schedule"
+  ],
+  "growth_target": {
+    "monthly_net_followers": 10000,
+    "daily_net_followers_required": 333,
+    "daily_content_minimum": {
+      "tiktok": 4,
+      "instagram_reels": 2,
+      "instagram_stories": 3,
+      "facebook_posts": 2,
+      "personal_bridge_posts": 1
+    },
+    "growth_method": "content volume, creator leverage, winner amplification, retargeting, and daily clone loop",
+    "forbidden": ["fake_followers", "fake_likes", "fake_views", "bot_comments", "platform_evasion"]
+  }
+}
